@@ -1,0 +1,19 @@
+JENGA REMOTE — AUTOMATIC BUILD AND START
+
+1. Extract ALL files from this ZIP into your existing PCApp (C++) folder.
+2. Allow the updated scripts to replace the old copies.
+3. Leave the copied msvc2022_64 Qt folder there.
+4. Double-click JengaRemote-Start.exe.
+
+It detects Qt, builds the final application, and opens it automatically.
+If a built app already exists, it opens that copy immediately.
+To rebuild after code changes, double-click BUILD-WINDOWS.cmd instead.
+
+Visual Studio 2022 C++ tools, CMake and Git are still required for the
+first build. The launcher does not silently install those system tools.
+Build errors remain visible in the console rather than disappearing.
+
+The final application is dist\JengaRemote\JengaRemote.exe.
+Keep that whole deployed folder together, including its runtime DLLs.
+
+You do not need to download Qt again or change the phone app.

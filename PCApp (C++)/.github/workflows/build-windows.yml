@@ -1,0 +1,24 @@
+name: Build Windows app
+on:
+  workflow_dispatch:
+  push:
+    branches: [main, master]
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: windows-2022
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Qt SDK
+        shell: pwsh
+        run: |
+          python -m pip install aqtinstall==3.3.0
+          python -m aqt install-qt windows desktop 6.8.3 win64_msvc2022_64 -m qtwebsockets -O C:\Qt
+      - name: Build, test and package
+        shell: pwsh
+        run: ./build-windows.ps1 -QtDir C:\Qt\6.8.3\msvc2022_64
+      - uses: actions/upload-artifact@v4
+        with:
+          name: JengaRemote-Windows-x64
+          path: dist/JengaRemote-Windows-x64.zip

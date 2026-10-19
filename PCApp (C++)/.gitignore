@@ -1,0 +1,7 @@
+build*/
+dist/
+.tools/
+vcpkg_installed/
+CMakeUserPresets.json
+*.user
+*.user.*
